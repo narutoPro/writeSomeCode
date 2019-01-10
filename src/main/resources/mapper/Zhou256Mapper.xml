@@ -1,0 +1,935 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.whut.cs.chende.dao.Zhou256Mapper">
+  <resultMap id="BaseResultMap" type="edu.whut.cs.chende.entity.Zhou256">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="groupId" jdbcType="VARCHAR" property="groupid" />
+    <result column="学号" jdbcType="VARCHAR" property="学号" />
+    <result column="姓名" jdbcType="VARCHAR" property="姓名" />
+    <result column="专业班级" jdbcType="VARCHAR" property="专业班级" />
+    <result column="课前心得1" jdbcType="VARCHAR" property="课前心得1" />
+    <result column="课前心得2" jdbcType="VARCHAR" property="课前心得2" />
+    <result column="课前心得3" jdbcType="VARCHAR" property="课前心得3" />
+    <result column="课前心得4" jdbcType="VARCHAR" property="课前心得4" />
+    <result column="课前心得5" jdbcType="VARCHAR" property="课前心得5" />
+    <result column="课前心得6" jdbcType="VARCHAR" property="课前心得6" />
+    <result column="课前心得7" jdbcType="VARCHAR" property="课前心得7" />
+    <result column="课前心得8" jdbcType="VARCHAR" property="课前心得8" />
+    <result column="课前心得9" jdbcType="VARCHAR" property="课前心得9" />
+    <result column="课前心得10" jdbcType="VARCHAR" property="课前心得10" />
+    <result column="课前心得11" jdbcType="VARCHAR" property="课前心得11" />
+    <result column="课前心得12" jdbcType="VARCHAR" property="课前心得12" />
+    <result column="课后作业1" jdbcType="VARCHAR" property="课后作业1" />
+    <result column="课后作业2" jdbcType="VARCHAR" property="课后作业2" />
+    <result column="课后作业3" jdbcType="VARCHAR" property="课后作业3" />
+    <result column="课后作业4" jdbcType="VARCHAR" property="课后作业4" />
+    <result column="课后作业5" jdbcType="VARCHAR" property="课后作业5" />
+    <result column="课后作业6" jdbcType="VARCHAR" property="课后作业6" />
+    <result column="课后作业7" jdbcType="VARCHAR" property="课后作业7" />
+    <result column="课后作业8" jdbcType="VARCHAR" property="课后作业8" />
+    <result column="课后作业9" jdbcType="VARCHAR" property="课后作业9" />
+    <result column="课后作业10" jdbcType="VARCHAR" property="课后作业10" />
+    <result column="课后作业11" jdbcType="VARCHAR" property="课后作业11" />
+    <result column="课后作业12" jdbcType="VARCHAR" property="课后作业12" />
+    <result column="每周心得1" jdbcType="VARCHAR" property="每周心得1" />
+    <result column="每周心得2" jdbcType="VARCHAR" property="每周心得2" />
+    <result column="每周心得3" jdbcType="VARCHAR" property="每周心得3" />
+    <result column="每周心得4" jdbcType="VARCHAR" property="每周心得4" />
+    <result column="每周心得5" jdbcType="VARCHAR" property="每周心得5" />
+    <result column="每周心得6" jdbcType="VARCHAR" property="每周心得6" />
+    <result column="每周心得7" jdbcType="VARCHAR" property="每周心得7" />
+    <result column="每周心得8" jdbcType="VARCHAR" property="每周心得8" />
+    <result column="每周心得9" jdbcType="VARCHAR" property="每周心得9" />
+    <result column="每周心得10" jdbcType="VARCHAR" property="每周心得10" />
+    <result column="每周心得11" jdbcType="VARCHAR" property="每周心得11" />
+    <result column="每周心得12" jdbcType="VARCHAR" property="每周心得12" />
+    <result column="实验1" jdbcType="VARCHAR" property="实验1" />
+    <result column="实验测试" jdbcType="VARCHAR" property="实验测试" />
+    <result column="实验考试" jdbcType="VARCHAR" property="实验考试" />
+    <result column="每章总结1" jdbcType="VARCHAR" property="每章总结1" />
+    <result column="每章总结2" jdbcType="VARCHAR" property="每章总结2" />
+    <result column="每章总结3" jdbcType="VARCHAR" property="每章总结3" />
+    <result column="每章总结4" jdbcType="VARCHAR" property="每章总结4" />
+    <result column="每章总结5" jdbcType="VARCHAR" property="每章总结5" />
+    <result column="阶段练习1" jdbcType="VARCHAR" property="阶段练习1" />
+    <result column="阶段练习2" jdbcType="VARCHAR" property="阶段练习2" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, groupId, 学号, 姓名, 专业班级, 课前心得1, 课前心得2, 课前心得3, 课前心得4, 课前心得5, 课前心得6, 课前心得7, 课前心得8, 
+    课前心得9, 课前心得10, 课前心得11, 课前心得12, 课后作业1, 课后作业2, 课后作业3, 课后作业4, 课后作业5, 课后作业6, 课后作业7, 课后作业8, 
+    课后作业9, 课后作业10, 课后作业11, 课后作业12, 每周心得1, 每周心得2, 每周心得3, 每周心得4, 每周心得5, 每周心得6, 每周心得7, 每周心得8, 
+    每周心得9, 每周心得10, 每周心得11, 每周心得12, 实验1, 实验测试, 实验考试, 每章总结1, 每章总结2, 每章总结3, 每章总结4, 每章总结5, 
+    阶段练习1, 阶段练习2
+  </sql>
+  <select id="selectByExample" parameterType="edu.whut.cs.chende.entity.Zhou256Example" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from zhou256
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from zhou256
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from zhou256
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="edu.whut.cs.chende.entity.Zhou256Example">
+    delete from zhou256
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="edu.whut.cs.chende.entity.Zhou256">
+    insert into zhou256 (id, groupId, 学号, 
+      姓名, 专业班级, 课前心得1, 课前心得2, 
+      课前心得3, 课前心得4, 课前心得5, 
+      课前心得6, 课前心得7, 课前心得8, 
+      课前心得9, 课前心得10, 课前心得11, 
+      课前心得12, 课后作业1, 课后作业2, 
+      课后作业3, 课后作业4, 课后作业5, 
+      课后作业6, 课后作业7, 课后作业8, 
+      课后作业9, 课后作业10, 课后作业11, 
+      课后作业12, 每周心得1, 每周心得2, 
+      每周心得3, 每周心得4, 每周心得5, 
+      每周心得6, 每周心得7, 每周心得8, 
+      每周心得9, 每周心得10, 每周心得11, 
+      每周心得12, 实验1, 实验测试, 
+      实验考试, 每章总结1, 每章总结2, 
+      每章总结3, 每章总结4, 每章总结5, 
+      阶段练习1, 阶段练习2)
+    values (#{id,jdbcType=INTEGER}, #{groupid,jdbcType=VARCHAR}, #{学号,jdbcType=VARCHAR}, 
+      #{姓名,jdbcType=VARCHAR}, #{专业班级,jdbcType=VARCHAR}, #{课前心得1,jdbcType=VARCHAR}, #{课前心得2,jdbcType=VARCHAR}, 
+      #{课前心得3,jdbcType=VARCHAR}, #{课前心得4,jdbcType=VARCHAR}, #{课前心得5,jdbcType=VARCHAR}, 
+      #{课前心得6,jdbcType=VARCHAR}, #{课前心得7,jdbcType=VARCHAR}, #{课前心得8,jdbcType=VARCHAR}, 
+      #{课前心得9,jdbcType=VARCHAR}, #{课前心得10,jdbcType=VARCHAR}, #{课前心得11,jdbcType=VARCHAR}, 
+      #{课前心得12,jdbcType=VARCHAR}, #{课后作业1,jdbcType=VARCHAR}, #{课后作业2,jdbcType=VARCHAR}, 
+      #{课后作业3,jdbcType=VARCHAR}, #{课后作业4,jdbcType=VARCHAR}, #{课后作业5,jdbcType=VARCHAR}, 
+      #{课后作业6,jdbcType=VARCHAR}, #{课后作业7,jdbcType=VARCHAR}, #{课后作业8,jdbcType=VARCHAR}, 
+      #{课后作业9,jdbcType=VARCHAR}, #{课后作业10,jdbcType=VARCHAR}, #{课后作业11,jdbcType=VARCHAR}, 
+      #{课后作业12,jdbcType=VARCHAR}, #{每周心得1,jdbcType=VARCHAR}, #{每周心得2,jdbcType=VARCHAR}, 
+      #{每周心得3,jdbcType=VARCHAR}, #{每周心得4,jdbcType=VARCHAR}, #{每周心得5,jdbcType=VARCHAR}, 
+      #{每周心得6,jdbcType=VARCHAR}, #{每周心得7,jdbcType=VARCHAR}, #{每周心得8,jdbcType=VARCHAR}, 
+      #{每周心得9,jdbcType=VARCHAR}, #{每周心得10,jdbcType=VARCHAR}, #{每周心得11,jdbcType=VARCHAR}, 
+      #{每周心得12,jdbcType=VARCHAR}, #{实验1,jdbcType=VARCHAR}, #{实验测试,jdbcType=VARCHAR}, 
+      #{实验考试,jdbcType=VARCHAR}, #{每章总结1,jdbcType=VARCHAR}, #{每章总结2,jdbcType=VARCHAR}, 
+      #{每章总结3,jdbcType=VARCHAR}, #{每章总结4,jdbcType=VARCHAR}, #{每章总结5,jdbcType=VARCHAR}, 
+      #{阶段练习1,jdbcType=VARCHAR}, #{阶段练习2,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="edu.whut.cs.chende.entity.Zhou256">
+    insert into zhou256
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="groupid != null">
+        groupId,
+      </if>
+      <if test="学号 != null">
+        学号,
+      </if>
+      <if test="姓名 != null">
+        姓名,
+      </if>
+      <if test="专业班级 != null">
+        专业班级,
+      </if>
+      <if test="课前心得1 != null">
+        课前心得1,
+      </if>
+      <if test="课前心得2 != null">
+        课前心得2,
+      </if>
+      <if test="课前心得3 != null">
+        课前心得3,
+      </if>
+      <if test="课前心得4 != null">
+        课前心得4,
+      </if>
+      <if test="课前心得5 != null">
+        课前心得5,
+      </if>
+      <if test="课前心得6 != null">
+        课前心得6,
+      </if>
+      <if test="课前心得7 != null">
+        课前心得7,
+      </if>
+      <if test="课前心得8 != null">
+        课前心得8,
+      </if>
+      <if test="课前心得9 != null">
+        课前心得9,
+      </if>
+      <if test="课前心得10 != null">
+        课前心得10,
+      </if>
+      <if test="课前心得11 != null">
+        课前心得11,
+      </if>
+      <if test="课前心得12 != null">
+        课前心得12,
+      </if>
+      <if test="课后作业1 != null">
+        课后作业1,
+      </if>
+      <if test="课后作业2 != null">
+        课后作业2,
+      </if>
+      <if test="课后作业3 != null">
+        课后作业3,
+      </if>
+      <if test="课后作业4 != null">
+        课后作业4,
+      </if>
+      <if test="课后作业5 != null">
+        课后作业5,
+      </if>
+      <if test="课后作业6 != null">
+        课后作业6,
+      </if>
+      <if test="课后作业7 != null">
+        课后作业7,
+      </if>
+      <if test="课后作业8 != null">
+        课后作业8,
+      </if>
+      <if test="课后作业9 != null">
+        课后作业9,
+      </if>
+      <if test="课后作业10 != null">
+        课后作业10,
+      </if>
+      <if test="课后作业11 != null">
+        课后作业11,
+      </if>
+      <if test="课后作业12 != null">
+        课后作业12,
+      </if>
+      <if test="每周心得1 != null">
+        每周心得1,
+      </if>
+      <if test="每周心得2 != null">
+        每周心得2,
+      </if>
+      <if test="每周心得3 != null">
+        每周心得3,
+      </if>
+      <if test="每周心得4 != null">
+        每周心得4,
+      </if>
+      <if test="每周心得5 != null">
+        每周心得5,
+      </if>
+      <if test="每周心得6 != null">
+        每周心得6,
+      </if>
+      <if test="每周心得7 != null">
+        每周心得7,
+      </if>
+      <if test="每周心得8 != null">
+        每周心得8,
+      </if>
+      <if test="每周心得9 != null">
+        每周心得9,
+      </if>
+      <if test="每周心得10 != null">
+        每周心得10,
+      </if>
+      <if test="每周心得11 != null">
+        每周心得11,
+      </if>
+      <if test="每周心得12 != null">
+        每周心得12,
+      </if>
+      <if test="实验1 != null">
+        实验1,
+      </if>
+      <if test="实验测试 != null">
+        实验测试,
+      </if>
+      <if test="实验考试 != null">
+        实验考试,
+      </if>
+      <if test="每章总结1 != null">
+        每章总结1,
+      </if>
+      <if test="每章总结2 != null">
+        每章总结2,
+      </if>
+      <if test="每章总结3 != null">
+        每章总结3,
+      </if>
+      <if test="每章总结4 != null">
+        每章总结4,
+      </if>
+      <if test="每章总结5 != null">
+        每章总结5,
+      </if>
+      <if test="阶段练习1 != null">
+        阶段练习1,
+      </if>
+      <if test="阶段练习2 != null">
+        阶段练习2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="groupid != null">
+        #{groupid,jdbcType=VARCHAR},
+      </if>
+      <if test="学号 != null">
+        #{学号,jdbcType=VARCHAR},
+      </if>
+      <if test="姓名 != null">
+        #{姓名,jdbcType=VARCHAR},
+      </if>
+      <if test="专业班级 != null">
+        #{专业班级,jdbcType=VARCHAR},
+      </if>
+      <if test="课前心得1 != null">
+        #{课前心得1,jdbcType=VARCHAR},
+      </if>
+      <if test="课前心得2 != null">
+        #{课前心得2,jdbcType=VARCHAR},
+      </if>
+      <if test="课前心得3 != null">
+        #{课前心得3,jdbcType=VARCHAR},
+      </if>
+      <if test="课前心得4 != null">
+        #{课前心得4,jdbcType=VARCHAR},
+      </if>
+      <if test="课前心得5 != null">
+        #{课前心得5,jdbcType=VARCHAR},
+      </if>
+      <if test="课前心得6 != null">
+        #{课前心得6,jdbcType=VARCHAR},
+      </if>
+      <if test="课前心得7 != null">
+        #{课前心得7,jdbcType=VARCHAR},
+      </if>
+      <if test="课前心得8 != null">
+        #{课前心得8,jdbcType=VARCHAR},
+      </if>
+      <if test="课前心得9 != null">
+        #{课前心得9,jdbcType=VARCHAR},
+      </if>
+      <if test="课前心得10 != null">
+        #{课前心得10,jdbcType=VARCHAR},
+      </if>
+      <if test="课前心得11 != null">
+        #{课前心得11,jdbcType=VARCHAR},
+      </if>
+      <if test="课前心得12 != null">
+        #{课前心得12,jdbcType=VARCHAR},
+      </if>
+      <if test="课后作业1 != null">
+        #{课后作业1,jdbcType=VARCHAR},
+      </if>
+      <if test="课后作业2 != null">
+        #{课后作业2,jdbcType=VARCHAR},
+      </if>
+      <if test="课后作业3 != null">
+        #{课后作业3,jdbcType=VARCHAR},
+      </if>
+      <if test="课后作业4 != null">
+        #{课后作业4,jdbcType=VARCHAR},
+      </if>
+      <if test="课后作业5 != null">
+        #{课后作业5,jdbcType=VARCHAR},
+      </if>
+      <if test="课后作业6 != null">
+        #{课后作业6,jdbcType=VARCHAR},
+      </if>
+      <if test="课后作业7 != null">
+        #{课后作业7,jdbcType=VARCHAR},
+      </if>
+      <if test="课后作业8 != null">
+        #{课后作业8,jdbcType=VARCHAR},
+      </if>
+      <if test="课后作业9 != null">
+        #{课后作业9,jdbcType=VARCHAR},
+      </if>
+      <if test="课后作业10 != null">
+        #{课后作业10,jdbcType=VARCHAR},
+      </if>
+      <if test="课后作业11 != null">
+        #{课后作业11,jdbcType=VARCHAR},
+      </if>
+      <if test="课后作业12 != null">
+        #{课后作业12,jdbcType=VARCHAR},
+      </if>
+      <if test="每周心得1 != null">
+        #{每周心得1,jdbcType=VARCHAR},
+      </if>
+      <if test="每周心得2 != null">
+        #{每周心得2,jdbcType=VARCHAR},
+      </if>
+      <if test="每周心得3 != null">
+        #{每周心得3,jdbcType=VARCHAR},
+      </if>
+      <if test="每周心得4 != null">
+        #{每周心得4,jdbcType=VARCHAR},
+      </if>
+      <if test="每周心得5 != null">
+        #{每周心得5,jdbcType=VARCHAR},
+      </if>
+      <if test="每周心得6 != null">
+        #{每周心得6,jdbcType=VARCHAR},
+      </if>
+      <if test="每周心得7 != null">
+        #{每周心得7,jdbcType=VARCHAR},
+      </if>
+      <if test="每周心得8 != null">
+        #{每周心得8,jdbcType=VARCHAR},
+      </if>
+      <if test="每周心得9 != null">
+        #{每周心得9,jdbcType=VARCHAR},
+      </if>
+      <if test="每周心得10 != null">
+        #{每周心得10,jdbcType=VARCHAR},
+      </if>
+      <if test="每周心得11 != null">
+        #{每周心得11,jdbcType=VARCHAR},
+      </if>
+      <if test="每周心得12 != null">
+        #{每周心得12,jdbcType=VARCHAR},
+      </if>
+      <if test="实验1 != null">
+        #{实验1,jdbcType=VARCHAR},
+      </if>
+      <if test="实验测试 != null">
+        #{实验测试,jdbcType=VARCHAR},
+      </if>
+      <if test="实验考试 != null">
+        #{实验考试,jdbcType=VARCHAR},
+      </if>
+      <if test="每章总结1 != null">
+        #{每章总结1,jdbcType=VARCHAR},
+      </if>
+      <if test="每章总结2 != null">
+        #{每章总结2,jdbcType=VARCHAR},
+      </if>
+      <if test="每章总结3 != null">
+        #{每章总结3,jdbcType=VARCHAR},
+      </if>
+      <if test="每章总结4 != null">
+        #{每章总结4,jdbcType=VARCHAR},
+      </if>
+      <if test="每章总结5 != null">
+        #{每章总结5,jdbcType=VARCHAR},
+      </if>
+      <if test="阶段练习1 != null">
+        #{阶段练习1,jdbcType=VARCHAR},
+      </if>
+      <if test="阶段练习2 != null">
+        #{阶段练习2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="edu.whut.cs.chende.entity.Zhou256Example" resultType="java.lang.Long">
+    select count(*) from zhou256
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update zhou256
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.groupid != null">
+        groupId = #{record.groupid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.学号 != null">
+        学号 = #{record.学号,jdbcType=VARCHAR},
+      </if>
+      <if test="record.姓名 != null">
+        姓名 = #{record.姓名,jdbcType=VARCHAR},
+      </if>
+      <if test="record.专业班级 != null">
+        专业班级 = #{record.专业班级,jdbcType=VARCHAR},
+      </if>
+      <if test="record.课前心得1 != null">
+        课前心得1 = #{record.课前心得1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.课前心得2 != null">
+        课前心得2 = #{record.课前心得2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.课前心得3 != null">
+        课前心得3 = #{record.课前心得3,jdbcType=VARCHAR},
+      </if>
+      <if test="record.课前心得4 != null">
+        课前心得4 = #{record.课前心得4,jdbcType=VARCHAR},
+      </if>
+      <if test="record.课前心得5 != null">
+        课前心得5 = #{record.课前心得5,jdbcType=VARCHAR},
+      </if>
+      <if test="record.课前心得6 != null">
+        课前心得6 = #{record.课前心得6,jdbcType=VARCHAR},
+      </if>
+      <if test="record.课前心得7 != null">
+        课前心得7 = #{record.课前心得7,jdbcType=VARCHAR},
+      </if>
+      <if test="record.课前心得8 != null">
+        课前心得8 = #{record.课前心得8,jdbcType=VARCHAR},
+      </if>
+      <if test="record.课前心得9 != null">
+        课前心得9 = #{record.课前心得9,jdbcType=VARCHAR},
+      </if>
+      <if test="record.课前心得10 != null">
+        课前心得10 = #{record.课前心得10,jdbcType=VARCHAR},
+      </if>
+      <if test="record.课前心得11 != null">
+        课前心得11 = #{record.课前心得11,jdbcType=VARCHAR},
+      </if>
+      <if test="record.课前心得12 != null">
+        课前心得12 = #{record.课前心得12,jdbcType=VARCHAR},
+      </if>
+      <if test="record.课后作业1 != null">
+        课后作业1 = #{record.课后作业1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.课后作业2 != null">
+        课后作业2 = #{record.课后作业2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.课后作业3 != null">
+        课后作业3 = #{record.课后作业3,jdbcType=VARCHAR},
+      </if>
+      <if test="record.课后作业4 != null">
+        课后作业4 = #{record.课后作业4,jdbcType=VARCHAR},
+      </if>
+      <if test="record.课后作业5 != null">
+        课后作业5 = #{record.课后作业5,jdbcType=VARCHAR},
+      </if>
+      <if test="record.课后作业6 != null">
+        课后作业6 = #{record.课后作业6,jdbcType=VARCHAR},
+      </if>
+      <if test="record.课后作业7 != null">
+        课后作业7 = #{record.课后作业7,jdbcType=VARCHAR},
+      </if>
+      <if test="record.课后作业8 != null">
+        课后作业8 = #{record.课后作业8,jdbcType=VARCHAR},
+      </if>
+      <if test="record.课后作业9 != null">
+        课后作业9 = #{record.课后作业9,jdbcType=VARCHAR},
+      </if>
+      <if test="record.课后作业10 != null">
+        课后作业10 = #{record.课后作业10,jdbcType=VARCHAR},
+      </if>
+      <if test="record.课后作业11 != null">
+        课后作业11 = #{record.课后作业11,jdbcType=VARCHAR},
+      </if>
+      <if test="record.课后作业12 != null">
+        课后作业12 = #{record.课后作业12,jdbcType=VARCHAR},
+      </if>
+      <if test="record.每周心得1 != null">
+        每周心得1 = #{record.每周心得1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.每周心得2 != null">
+        每周心得2 = #{record.每周心得2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.每周心得3 != null">
+        每周心得3 = #{record.每周心得3,jdbcType=VARCHAR},
+      </if>
+      <if test="record.每周心得4 != null">
+        每周心得4 = #{record.每周心得4,jdbcType=VARCHAR},
+      </if>
+      <if test="record.每周心得5 != null">
+        每周心得5 = #{record.每周心得5,jdbcType=VARCHAR},
+      </if>
+      <if test="record.每周心得6 != null">
+        每周心得6 = #{record.每周心得6,jdbcType=VARCHAR},
+      </if>
+      <if test="record.每周心得7 != null">
+        每周心得7 = #{record.每周心得7,jdbcType=VARCHAR},
+      </if>
+      <if test="record.每周心得8 != null">
+        每周心得8 = #{record.每周心得8,jdbcType=VARCHAR},
+      </if>
+      <if test="record.每周心得9 != null">
+        每周心得9 = #{record.每周心得9,jdbcType=VARCHAR},
+      </if>
+      <if test="record.每周心得10 != null">
+        每周心得10 = #{record.每周心得10,jdbcType=VARCHAR},
+      </if>
+      <if test="record.每周心得11 != null">
+        每周心得11 = #{record.每周心得11,jdbcType=VARCHAR},
+      </if>
+      <if test="record.每周心得12 != null">
+        每周心得12 = #{record.每周心得12,jdbcType=VARCHAR},
+      </if>
+      <if test="record.实验1 != null">
+        实验1 = #{record.实验1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.实验测试 != null">
+        实验测试 = #{record.实验测试,jdbcType=VARCHAR},
+      </if>
+      <if test="record.实验考试 != null">
+        实验考试 = #{record.实验考试,jdbcType=VARCHAR},
+      </if>
+      <if test="record.每章总结1 != null">
+        每章总结1 = #{record.每章总结1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.每章总结2 != null">
+        每章总结2 = #{record.每章总结2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.每章总结3 != null">
+        每章总结3 = #{record.每章总结3,jdbcType=VARCHAR},
+      </if>
+      <if test="record.每章总结4 != null">
+        每章总结4 = #{record.每章总结4,jdbcType=VARCHAR},
+      </if>
+      <if test="record.每章总结5 != null">
+        每章总结5 = #{record.每章总结5,jdbcType=VARCHAR},
+      </if>
+      <if test="record.阶段练习1 != null">
+        阶段练习1 = #{record.阶段练习1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.阶段练习2 != null">
+        阶段练习2 = #{record.阶段练习2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update zhou256
+    set id = #{record.id,jdbcType=INTEGER},
+      groupId = #{record.groupid,jdbcType=VARCHAR},
+      学号 = #{record.学号,jdbcType=VARCHAR},
+      姓名 = #{record.姓名,jdbcType=VARCHAR},
+      专业班级 = #{record.专业班级,jdbcType=VARCHAR},
+      课前心得1 = #{record.课前心得1,jdbcType=VARCHAR},
+      课前心得2 = #{record.课前心得2,jdbcType=VARCHAR},
+      课前心得3 = #{record.课前心得3,jdbcType=VARCHAR},
+      课前心得4 = #{record.课前心得4,jdbcType=VARCHAR},
+      课前心得5 = #{record.课前心得5,jdbcType=VARCHAR},
+      课前心得6 = #{record.课前心得6,jdbcType=VARCHAR},
+      课前心得7 = #{record.课前心得7,jdbcType=VARCHAR},
+      课前心得8 = #{record.课前心得8,jdbcType=VARCHAR},
+      课前心得9 = #{record.课前心得9,jdbcType=VARCHAR},
+      课前心得10 = #{record.课前心得10,jdbcType=VARCHAR},
+      课前心得11 = #{record.课前心得11,jdbcType=VARCHAR},
+      课前心得12 = #{record.课前心得12,jdbcType=VARCHAR},
+      课后作业1 = #{record.课后作业1,jdbcType=VARCHAR},
+      课后作业2 = #{record.课后作业2,jdbcType=VARCHAR},
+      课后作业3 = #{record.课后作业3,jdbcType=VARCHAR},
+      课后作业4 = #{record.课后作业4,jdbcType=VARCHAR},
+      课后作业5 = #{record.课后作业5,jdbcType=VARCHAR},
+      课后作业6 = #{record.课后作业6,jdbcType=VARCHAR},
+      课后作业7 = #{record.课后作业7,jdbcType=VARCHAR},
+      课后作业8 = #{record.课后作业8,jdbcType=VARCHAR},
+      课后作业9 = #{record.课后作业9,jdbcType=VARCHAR},
+      课后作业10 = #{record.课后作业10,jdbcType=VARCHAR},
+      课后作业11 = #{record.课后作业11,jdbcType=VARCHAR},
+      课后作业12 = #{record.课后作业12,jdbcType=VARCHAR},
+      每周心得1 = #{record.每周心得1,jdbcType=VARCHAR},
+      每周心得2 = #{record.每周心得2,jdbcType=VARCHAR},
+      每周心得3 = #{record.每周心得3,jdbcType=VARCHAR},
+      每周心得4 = #{record.每周心得4,jdbcType=VARCHAR},
+      每周心得5 = #{record.每周心得5,jdbcType=VARCHAR},
+      每周心得6 = #{record.每周心得6,jdbcType=VARCHAR},
+      每周心得7 = #{record.每周心得7,jdbcType=VARCHAR},
+      每周心得8 = #{record.每周心得8,jdbcType=VARCHAR},
+      每周心得9 = #{record.每周心得9,jdbcType=VARCHAR},
+      每周心得10 = #{record.每周心得10,jdbcType=VARCHAR},
+      每周心得11 = #{record.每周心得11,jdbcType=VARCHAR},
+      每周心得12 = #{record.每周心得12,jdbcType=VARCHAR},
+      实验1 = #{record.实验1,jdbcType=VARCHAR},
+      实验测试 = #{record.实验测试,jdbcType=VARCHAR},
+      实验考试 = #{record.实验考试,jdbcType=VARCHAR},
+      每章总结1 = #{record.每章总结1,jdbcType=VARCHAR},
+      每章总结2 = #{record.每章总结2,jdbcType=VARCHAR},
+      每章总结3 = #{record.每章总结3,jdbcType=VARCHAR},
+      每章总结4 = #{record.每章总结4,jdbcType=VARCHAR},
+      每章总结5 = #{record.每章总结5,jdbcType=VARCHAR},
+      阶段练习1 = #{record.阶段练习1,jdbcType=VARCHAR},
+      阶段练习2 = #{record.阶段练习2,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="edu.whut.cs.chende.entity.Zhou256">
+    update zhou256
+    <set>
+      <if test="groupid != null">
+        groupId = #{groupid,jdbcType=VARCHAR},
+      </if>
+      <if test="学号 != null">
+        学号 = #{学号,jdbcType=VARCHAR},
+      </if>
+      <if test="姓名 != null">
+        姓名 = #{姓名,jdbcType=VARCHAR},
+      </if>
+      <if test="专业班级 != null">
+        专业班级 = #{专业班级,jdbcType=VARCHAR},
+      </if>
+      <if test="课前心得1 != null">
+        课前心得1 = #{课前心得1,jdbcType=VARCHAR},
+      </if>
+      <if test="课前心得2 != null">
+        课前心得2 = #{课前心得2,jdbcType=VARCHAR},
+      </if>
+      <if test="课前心得3 != null">
+        课前心得3 = #{课前心得3,jdbcType=VARCHAR},
+      </if>
+      <if test="课前心得4 != null">
+        课前心得4 = #{课前心得4,jdbcType=VARCHAR},
+      </if>
+      <if test="课前心得5 != null">
+        课前心得5 = #{课前心得5,jdbcType=VARCHAR},
+      </if>
+      <if test="课前心得6 != null">
+        课前心得6 = #{课前心得6,jdbcType=VARCHAR},
+      </if>
+      <if test="课前心得7 != null">
+        课前心得7 = #{课前心得7,jdbcType=VARCHAR},
+      </if>
+      <if test="课前心得8 != null">
+        课前心得8 = #{课前心得8,jdbcType=VARCHAR},
+      </if>
+      <if test="课前心得9 != null">
+        课前心得9 = #{课前心得9,jdbcType=VARCHAR},
+      </if>
+      <if test="课前心得10 != null">
+        课前心得10 = #{课前心得10,jdbcType=VARCHAR},
+      </if>
+      <if test="课前心得11 != null">
+        课前心得11 = #{课前心得11,jdbcType=VARCHAR},
+      </if>
+      <if test="课前心得12 != null">
+        课前心得12 = #{课前心得12,jdbcType=VARCHAR},
+      </if>
+      <if test="课后作业1 != null">
+        课后作业1 = #{课后作业1,jdbcType=VARCHAR},
+      </if>
+      <if test="课后作业2 != null">
+        课后作业2 = #{课后作业2,jdbcType=VARCHAR},
+      </if>
+      <if test="课后作业3 != null">
+        课后作业3 = #{课后作业3,jdbcType=VARCHAR},
+      </if>
+      <if test="课后作业4 != null">
+        课后作业4 = #{课后作业4,jdbcType=VARCHAR},
+      </if>
+      <if test="课后作业5 != null">
+        课后作业5 = #{课后作业5,jdbcType=VARCHAR},
+      </if>
+      <if test="课后作业6 != null">
+        课后作业6 = #{课后作业6,jdbcType=VARCHAR},
+      </if>
+      <if test="课后作业7 != null">
+        课后作业7 = #{课后作业7,jdbcType=VARCHAR},
+      </if>
+      <if test="课后作业8 != null">
+        课后作业8 = #{课后作业8,jdbcType=VARCHAR},
+      </if>
+      <if test="课后作业9 != null">
+        课后作业9 = #{课后作业9,jdbcType=VARCHAR},
+      </if>
+      <if test="课后作业10 != null">
+        课后作业10 = #{课后作业10,jdbcType=VARCHAR},
+      </if>
+      <if test="课后作业11 != null">
+        课后作业11 = #{课后作业11,jdbcType=VARCHAR},
+      </if>
+      <if test="课后作业12 != null">
+        课后作业12 = #{课后作业12,jdbcType=VARCHAR},
+      </if>
+      <if test="每周心得1 != null">
+        每周心得1 = #{每周心得1,jdbcType=VARCHAR},
+      </if>
+      <if test="每周心得2 != null">
+        每周心得2 = #{每周心得2,jdbcType=VARCHAR},
+      </if>
+      <if test="每周心得3 != null">
+        每周心得3 = #{每周心得3,jdbcType=VARCHAR},
+      </if>
+      <if test="每周心得4 != null">
+        每周心得4 = #{每周心得4,jdbcType=VARCHAR},
+      </if>
+      <if test="每周心得5 != null">
+        每周心得5 = #{每周心得5,jdbcType=VARCHAR},
+      </if>
+      <if test="每周心得6 != null">
+        每周心得6 = #{每周心得6,jdbcType=VARCHAR},
+      </if>
+      <if test="每周心得7 != null">
+        每周心得7 = #{每周心得7,jdbcType=VARCHAR},
+      </if>
+      <if test="每周心得8 != null">
+        每周心得8 = #{每周心得8,jdbcType=VARCHAR},
+      </if>
+      <if test="每周心得9 != null">
+        每周心得9 = #{每周心得9,jdbcType=VARCHAR},
+      </if>
+      <if test="每周心得10 != null">
+        每周心得10 = #{每周心得10,jdbcType=VARCHAR},
+      </if>
+      <if test="每周心得11 != null">
+        每周心得11 = #{每周心得11,jdbcType=VARCHAR},
+      </if>
+      <if test="每周心得12 != null">
+        每周心得12 = #{每周心得12,jdbcType=VARCHAR},
+      </if>
+      <if test="实验1 != null">
+        实验1 = #{实验1,jdbcType=VARCHAR},
+      </if>
+      <if test="实验测试 != null">
+        实验测试 = #{实验测试,jdbcType=VARCHAR},
+      </if>
+      <if test="实验考试 != null">
+        实验考试 = #{实验考试,jdbcType=VARCHAR},
+      </if>
+      <if test="每章总结1 != null">
+        每章总结1 = #{每章总结1,jdbcType=VARCHAR},
+      </if>
+      <if test="每章总结2 != null">
+        每章总结2 = #{每章总结2,jdbcType=VARCHAR},
+      </if>
+      <if test="每章总结3 != null">
+        每章总结3 = #{每章总结3,jdbcType=VARCHAR},
+      </if>
+      <if test="每章总结4 != null">
+        每章总结4 = #{每章总结4,jdbcType=VARCHAR},
+      </if>
+      <if test="每章总结5 != null">
+        每章总结5 = #{每章总结5,jdbcType=VARCHAR},
+      </if>
+      <if test="阶段练习1 != null">
+        阶段练习1 = #{阶段练习1,jdbcType=VARCHAR},
+      </if>
+      <if test="阶段练习2 != null">
+        阶段练习2 = #{阶段练习2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="edu.whut.cs.chende.entity.Zhou256">
+    update zhou256
+    set groupId = #{groupid,jdbcType=VARCHAR},
+      学号 = #{学号,jdbcType=VARCHAR},
+      姓名 = #{姓名,jdbcType=VARCHAR},
+      专业班级 = #{专业班级,jdbcType=VARCHAR},
+      课前心得1 = #{课前心得1,jdbcType=VARCHAR},
+      课前心得2 = #{课前心得2,jdbcType=VARCHAR},
+      课前心得3 = #{课前心得3,jdbcType=VARCHAR},
+      课前心得4 = #{课前心得4,jdbcType=VARCHAR},
+      课前心得5 = #{课前心得5,jdbcType=VARCHAR},
+      课前心得6 = #{课前心得6,jdbcType=VARCHAR},
+      课前心得7 = #{课前心得7,jdbcType=VARCHAR},
+      课前心得8 = #{课前心得8,jdbcType=VARCHAR},
+      课前心得9 = #{课前心得9,jdbcType=VARCHAR},
+      课前心得10 = #{课前心得10,jdbcType=VARCHAR},
+      课前心得11 = #{课前心得11,jdbcType=VARCHAR},
+      课前心得12 = #{课前心得12,jdbcType=VARCHAR},
+      课后作业1 = #{课后作业1,jdbcType=VARCHAR},
+      课后作业2 = #{课后作业2,jdbcType=VARCHAR},
+      课后作业3 = #{课后作业3,jdbcType=VARCHAR},
+      课后作业4 = #{课后作业4,jdbcType=VARCHAR},
+      课后作业5 = #{课后作业5,jdbcType=VARCHAR},
+      课后作业6 = #{课后作业6,jdbcType=VARCHAR},
+      课后作业7 = #{课后作业7,jdbcType=VARCHAR},
+      课后作业8 = #{课后作业8,jdbcType=VARCHAR},
+      课后作业9 = #{课后作业9,jdbcType=VARCHAR},
+      课后作业10 = #{课后作业10,jdbcType=VARCHAR},
+      课后作业11 = #{课后作业11,jdbcType=VARCHAR},
+      课后作业12 = #{课后作业12,jdbcType=VARCHAR},
+      每周心得1 = #{每周心得1,jdbcType=VARCHAR},
+      每周心得2 = #{每周心得2,jdbcType=VARCHAR},
+      每周心得3 = #{每周心得3,jdbcType=VARCHAR},
+      每周心得4 = #{每周心得4,jdbcType=VARCHAR},
+      每周心得5 = #{每周心得5,jdbcType=VARCHAR},
+      每周心得6 = #{每周心得6,jdbcType=VARCHAR},
+      每周心得7 = #{每周心得7,jdbcType=VARCHAR},
+      每周心得8 = #{每周心得8,jdbcType=VARCHAR},
+      每周心得9 = #{每周心得9,jdbcType=VARCHAR},
+      每周心得10 = #{每周心得10,jdbcType=VARCHAR},
+      每周心得11 = #{每周心得11,jdbcType=VARCHAR},
+      每周心得12 = #{每周心得12,jdbcType=VARCHAR},
+      实验1 = #{实验1,jdbcType=VARCHAR},
+      实验测试 = #{实验测试,jdbcType=VARCHAR},
+      实验考试 = #{实验考试,jdbcType=VARCHAR},
+      每章总结1 = #{每章总结1,jdbcType=VARCHAR},
+      每章总结2 = #{每章总结2,jdbcType=VARCHAR},
+      每章总结3 = #{每章总结3,jdbcType=VARCHAR},
+      每章总结4 = #{每章总结4,jdbcType=VARCHAR},
+      每章总结5 = #{每章总结5,jdbcType=VARCHAR},
+      阶段练习1 = #{阶段练习1,jdbcType=VARCHAR},
+      阶段练习2 = #{阶段练习2,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

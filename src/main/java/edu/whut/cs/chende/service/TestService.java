@@ -4,8 +4,7 @@ package edu.whut.cs.chende.service;
 import edu.whut.cs.chende.dao.Zhou256Mapper;
 import edu.whut.cs.chende.entity.Zhou256;
 import edu.whut.cs.chende.entity.Zhou256Example;
-import edu.whut.cs.chende.util.HttpCall;
-import edu.whut.cs.chende.util.TaskThread;
+import edu.whut.cs.chende.util.*;
 import okhttp3.*;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -15,7 +14,10 @@ import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
@@ -28,7 +30,22 @@ public class TestService {
 //还需要设置 总的页数
     @Autowired
     Zhou256Mapper zhou256Mapper;
+    private LinkedBlockingQueue<Runnable> queue = new LinkedBlockingQueue<Runnable>();
 
+    private QunarThreadPoolExecutor qunarThreadPoolExecutor = new QunarThreadPoolExecutor(10, 15, 500, TimeUnit.MILLISECONDS, queue);
+
+    public static void main(String[] args) {
+        new TestService().getDataAndChangeScore3(0,49,100);
+    }
+    public void getDataAndChangeScore3(int start, int totalPage, int pageSize) {
+        int offset = start;
+        for (int i = 0; i < totalPage; i++) {
+            //  new Thread(new TaskThread(zhou256Mapper,start,pageSize)).start();
+            qunarThreadPoolExecutor.execute(func(offset,pageSize)) ;
+            offset = offset + pageSize;
+        }
+
+    }
     public void test() {
         getDataAndChangeScore(0, 49, 100);
     }
@@ -63,11 +80,12 @@ public class TestService {
      * @param start
      * @param limit
      */
-    public void func(int start, int limit) {
-
+    public DataUpdate func(int start, int limit) {
+        List<UserProfileItem> userProfiles=new ArrayList<>();
+        DataUpdate dataUpdate;
         JSONObject jsonObjectTemp = new JSONObject();
-        JSONObject[] jsonArrayTemp = new JSONObject[1];
-        JSONArray jsonResultArrayTemp = null;
+    //    JSONObject[] jsonArrayTemp = new JSONObject[1];
+    //    JSONArray jsonResultArrayTemp = null;
         String StringTemp;
         OkHttpClient client = new OkHttpClient();
         JSONObject jsonObjectRequest = new JSONObject();
@@ -107,7 +125,7 @@ public class TestService {
               //      int score = j.getInt("score");
                     int score = j.getInt("experienceScore");
                    // System.out.println(name + " " + stuId + " " + stu_class + groupId + " at week" + week + "get score" + score);
-                    System.out.println(name + " " + stuId + " " + stu_class + groupId + " at week" + week + "get experienceScore" + score);
+                //    System.out.println(name + " " + stuId + " " + stu_class + groupId + " at week" + week + "get experienceScore" + score);
                     Zhou256Example example = new Zhou256Example();
                     Zhou256Example.Criteria criteria = example.createCriteria();
                     criteria.and姓名EqualTo(name);
@@ -124,12 +142,22 @@ public class TestService {
                     } catch (NoSuchMethodException e) {
                         e.printStackTrace();
                     }
-                    zhou256Mapper.updateByExampleSelective(record, example);
+              //      zhou256Mapper.updateByExampleSelective(record, example);
+                    UserProfileItem userProfileItem=new UserProfileItem();
+                    userProfileItem.setName(name);
+                    userProfileItem.setStuId(stuId);
+                    userProfileItem.setWeek(week+"");
+                    userProfileItem.setScore(score+"");
+                    userProfiles.add(userProfileItem);
+
                 }
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
+        dataUpdate=new DataUpdate(userProfiles);
+        return dataUpdate;
     }
 
 

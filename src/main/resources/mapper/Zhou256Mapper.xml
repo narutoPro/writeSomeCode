@@ -53,6 +53,8 @@
     <result column="每章总结5" jdbcType="VARCHAR" property="每章总结5" />
     <result column="阶段练习1" jdbcType="VARCHAR" property="阶段练习1" />
     <result column="阶段练习2" jdbcType="VARCHAR" property="阶段练习2" />
+    <result column="第4周实验成绩" jdbcType="VARCHAR" property="第4周实验成绩" />
+    <result column="第6周实验成绩" jdbcType="VARCHAR" property="第6周实验成绩" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -117,7 +119,7 @@
     课前心得9, 课前心得10, 课前心得11, 课前心得12, 课后作业1, 课后作业2, 课后作业3, 课后作业4, 课后作业5, 课后作业6, 课后作业7, 课后作业8, 
     课后作业9, 课后作业10, 课后作业11, 课后作业12, 每周心得1, 每周心得2, 每周心得3, 每周心得4, 每周心得5, 每周心得6, 每周心得7, 每周心得8, 
     每周心得9, 每周心得10, 每周心得11, 每周心得12, 实验1, 实验测试, 实验考试, 每章总结1, 每章总结2, 每章总结3, 每章总结4, 每章总结5, 
-    阶段练习1, 阶段练习2
+    阶段练习1, 阶段练习2, 第4周实验成绩, 第6周实验成绩
   </sql>
   <select id="selectByExample" parameterType="edu.whut.cs.chende.entity.Zhou256Example" resultMap="BaseResultMap">
     select
@@ -166,7 +168,8 @@
       每周心得12, 实验1, 实验测试, 
       实验考试, 每章总结1, 每章总结2, 
       每章总结3, 每章总结4, 每章总结5, 
-      阶段练习1, 阶段练习2)
+      阶段练习1, 阶段练习2, 第4周实验成绩, 
+      第6周实验成绩)
     values (#{id,jdbcType=INTEGER}, #{groupid,jdbcType=VARCHAR}, #{学号,jdbcType=VARCHAR}, 
       #{姓名,jdbcType=VARCHAR}, #{专业班级,jdbcType=VARCHAR}, #{课前心得1,jdbcType=VARCHAR}, #{课前心得2,jdbcType=VARCHAR}, 
       #{课前心得3,jdbcType=VARCHAR}, #{课前心得4,jdbcType=VARCHAR}, #{课前心得5,jdbcType=VARCHAR}, 
@@ -183,7 +186,8 @@
       #{每周心得12,jdbcType=VARCHAR}, #{实验1,jdbcType=VARCHAR}, #{实验测试,jdbcType=VARCHAR}, 
       #{实验考试,jdbcType=VARCHAR}, #{每章总结1,jdbcType=VARCHAR}, #{每章总结2,jdbcType=VARCHAR}, 
       #{每章总结3,jdbcType=VARCHAR}, #{每章总结4,jdbcType=VARCHAR}, #{每章总结5,jdbcType=VARCHAR}, 
-      #{阶段练习1,jdbcType=VARCHAR}, #{阶段练习2,jdbcType=VARCHAR})
+      #{阶段练习1,jdbcType=VARCHAR}, #{阶段练习2,jdbcType=VARCHAR}, #{第4周实验成绩,jdbcType=VARCHAR}, 
+      #{第6周实验成绩,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="edu.whut.cs.chende.entity.Zhou256">
     insert into zhou256
@@ -341,6 +345,12 @@
       <if test="阶段练习2 != null">
         阶段练习2,
       </if>
+      <if test="第4周实验成绩 != null">
+        第4周实验成绩,
+      </if>
+      <if test="第6周实验成绩 != null">
+        第6周实验成绩,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -495,6 +505,12 @@
       </if>
       <if test="阶段练习2 != null">
         #{阶段练习2,jdbcType=VARCHAR},
+      </if>
+      <if test="第4周实验成绩 != null">
+        #{第4周实验成绩,jdbcType=VARCHAR},
+      </if>
+      <if test="第6周实验成绩 != null">
+        #{第6周实验成绩,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -660,6 +676,12 @@
       <if test="record.阶段练习2 != null">
         阶段练习2 = #{record.阶段练习2,jdbcType=VARCHAR},
       </if>
+      <if test="record.第4周实验成绩 != null">
+        第4周实验成绩 = #{record.第4周实验成绩,jdbcType=VARCHAR},
+      </if>
+      <if test="record.第6周实验成绩 != null">
+        第6周实验成绩 = #{record.第6周实验成绩,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -717,7 +739,9 @@
       每章总结4 = #{record.每章总结4,jdbcType=VARCHAR},
       每章总结5 = #{record.每章总结5,jdbcType=VARCHAR},
       阶段练习1 = #{record.阶段练习1,jdbcType=VARCHAR},
-      阶段练习2 = #{record.阶段练习2,jdbcType=VARCHAR}
+      阶段练习2 = #{record.阶段练习2,jdbcType=VARCHAR},
+      第4周实验成绩 = #{record.第4周实验成绩,jdbcType=VARCHAR},
+      第6周实验成绩 = #{record.第6周实验成绩,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -875,6 +899,12 @@
       <if test="阶段练习2 != null">
         阶段练习2 = #{阶段练习2,jdbcType=VARCHAR},
       </if>
+      <if test="第4周实验成绩 != null">
+        第4周实验成绩 = #{第4周实验成绩,jdbcType=VARCHAR},
+      </if>
+      <if test="第6周实验成绩 != null">
+        第6周实验成绩 = #{第6周实验成绩,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -929,7 +959,9 @@
       每章总结4 = #{每章总结4,jdbcType=VARCHAR},
       每章总结5 = #{每章总结5,jdbcType=VARCHAR},
       阶段练习1 = #{阶段练习1,jdbcType=VARCHAR},
-      阶段练习2 = #{阶段练习2,jdbcType=VARCHAR}
+      阶段练习2 = #{阶段练习2,jdbcType=VARCHAR},
+      第4周实验成绩 = #{第4周实验成绩,jdbcType=VARCHAR},
+      第6周实验成绩 = #{第6周实验成绩,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

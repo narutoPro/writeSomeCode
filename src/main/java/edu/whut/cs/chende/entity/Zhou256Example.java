@@ -3663,6 +3663,146 @@ public class Zhou256Example {
             addCriterion("阶段练习2 not between", value1, value2, "阶段练习2");
             return (Criteria) this;
         }
+
+        public Criteria and第4周实验成绩IsNull() {
+            addCriterion("第4周实验成绩 is null");
+            return (Criteria) this;
+        }
+
+        public Criteria and第4周实验成绩IsNotNull() {
+            addCriterion("第4周实验成绩 is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria and第4周实验成绩EqualTo(String value) {
+            addCriterion("第4周实验成绩 =", value, "第4周实验成绩");
+            return (Criteria) this;
+        }
+
+        public Criteria and第4周实验成绩NotEqualTo(String value) {
+            addCriterion("第4周实验成绩 <>", value, "第4周实验成绩");
+            return (Criteria) this;
+        }
+
+        public Criteria and第4周实验成绩GreaterThan(String value) {
+            addCriterion("第4周实验成绩 >", value, "第4周实验成绩");
+            return (Criteria) this;
+        }
+
+        public Criteria and第4周实验成绩GreaterThanOrEqualTo(String value) {
+            addCriterion("第4周实验成绩 >=", value, "第4周实验成绩");
+            return (Criteria) this;
+        }
+
+        public Criteria and第4周实验成绩LessThan(String value) {
+            addCriterion("第4周实验成绩 <", value, "第4周实验成绩");
+            return (Criteria) this;
+        }
+
+        public Criteria and第4周实验成绩LessThanOrEqualTo(String value) {
+            addCriterion("第4周实验成绩 <=", value, "第4周实验成绩");
+            return (Criteria) this;
+        }
+
+        public Criteria and第4周实验成绩Like(String value) {
+            addCriterion("第4周实验成绩 like", value, "第4周实验成绩");
+            return (Criteria) this;
+        }
+
+        public Criteria and第4周实验成绩NotLike(String value) {
+            addCriterion("第4周实验成绩 not like", value, "第4周实验成绩");
+            return (Criteria) this;
+        }
+
+        public Criteria and第4周实验成绩In(List<String> values) {
+            addCriterion("第4周实验成绩 in", values, "第4周实验成绩");
+            return (Criteria) this;
+        }
+
+        public Criteria and第4周实验成绩NotIn(List<String> values) {
+            addCriterion("第4周实验成绩 not in", values, "第4周实验成绩");
+            return (Criteria) this;
+        }
+
+        public Criteria and第4周实验成绩Between(String value1, String value2) {
+            addCriterion("第4周实验成绩 between", value1, value2, "第4周实验成绩");
+            return (Criteria) this;
+        }
+
+        public Criteria and第4周实验成绩NotBetween(String value1, String value2) {
+            addCriterion("第4周实验成绩 not between", value1, value2, "第4周实验成绩");
+            return (Criteria) this;
+        }
+
+        public Criteria and第6周实验成绩IsNull() {
+            addCriterion("第6周实验成绩 is null");
+            return (Criteria) this;
+        }
+
+        public Criteria and第6周实验成绩IsNotNull() {
+            addCriterion("第6周实验成绩 is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria and第6周实验成绩EqualTo(String value) {
+            addCriterion("第6周实验成绩 =", value, "第6周实验成绩");
+            return (Criteria) this;
+        }
+
+        public Criteria and第6周实验成绩NotEqualTo(String value) {
+            addCriterion("第6周实验成绩 <>", value, "第6周实验成绩");
+            return (Criteria) this;
+        }
+
+        public Criteria and第6周实验成绩GreaterThan(String value) {
+            addCriterion("第6周实验成绩 >", value, "第6周实验成绩");
+            return (Criteria) this;
+        }
+
+        public Criteria and第6周实验成绩GreaterThanOrEqualTo(String value) {
+            addCriterion("第6周实验成绩 >=", value, "第6周实验成绩");
+            return (Criteria) this;
+        }
+
+        public Criteria and第6周实验成绩LessThan(String value) {
+            addCriterion("第6周实验成绩 <", value, "第6周实验成绩");
+            return (Criteria) this;
+        }
+
+        public Criteria and第6周实验成绩LessThanOrEqualTo(String value) {
+            addCriterion("第6周实验成绩 <=", value, "第6周实验成绩");
+            return (Criteria) this;
+        }
+
+        public Criteria and第6周实验成绩Like(String value) {
+            addCriterion("第6周实验成绩 like", value, "第6周实验成绩");
+            return (Criteria) this;
+        }
+
+        public Criteria and第6周实验成绩NotLike(String value) {
+            addCriterion("第6周实验成绩 not like", value, "第6周实验成绩");
+            return (Criteria) this;
+        }
+
+        public Criteria and第6周实验成绩In(List<String> values) {
+            addCriterion("第6周实验成绩 in", values, "第6周实验成绩");
+            return (Criteria) this;
+        }
+
+        public Criteria and第6周实验成绩NotIn(List<String> values) {
+            addCriterion("第6周实验成绩 not in", values, "第6周实验成绩");
+            return (Criteria) this;
+        }
+
+        public Criteria and第6周实验成绩Between(String value1, String value2) {
+            addCriterion("第6周实验成绩 between", value1, value2, "第6周实验成绩");
+            return (Criteria) this;
+        }
+
+        public Criteria and第6周实验成绩NotBetween(String value1, String value2) {
+            addCriterion("第6周实验成绩 not between", value1, value2, "第6周实验成绩");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

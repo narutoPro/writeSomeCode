@@ -103,6 +103,10 @@ public class Zhou256 {
 
     private String 阶段练习2;
 
+    private String 第4周实验成绩;
+
+    private String 第6周实验成绩;
+
     public Integer getId() {
         return id;
     }
@@ -340,7 +344,6 @@ public class Zhou256 {
     }
 
     public void set每周心得1(String 每周心得1) {
-        System.out.println("set每周心得1（） "+每周心得1);
         this.每周心得1 = 每周心得1 == null ? null : 每周心得1.trim();
     }
 
@@ -510,5 +513,21 @@ public class Zhou256 {
 
     public void set阶段练习2(String 阶段练习2) {
         this.阶段练习2 = 阶段练习2 == null ? null : 阶段练习2.trim();
+    }
+
+    public String get第4周实验成绩() {
+        return 第4周实验成绩;
+    }
+
+    public void set第4周实验成绩(String 第4周实验成绩) {
+        this.第4周实验成绩 = 第4周实验成绩 == null ? null : 第4周实验成绩.trim();
+    }
+
+    public String get第6周实验成绩() {
+        return 第6周实验成绩;
+    }
+
+    public void set第6周实验成绩(String 第6周实验成绩) {
+        this.第6周实验成绩 = 第6周实验成绩 == null ? null : 第6周实验成绩.trim();
     }
 }

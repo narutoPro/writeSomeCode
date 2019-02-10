@@ -26,7 +26,7 @@ public class TestService {
     String url = "http://mt.wtulip.com/student/api/get-all-reports";
 //    String task = "set每周心得"; 课前心得
     String task="set课前心得";
-    int taskType	=1;  //课后作业=2   每周心得=4  课前预习 =1
+    int taskType	=1;  //课后作业=2   每周心得=4  课前预习 =1  实验练习=3
 //还需要设置 总的页数
     @Autowired
     Zhou256Mapper zhou256Mapper;
@@ -102,7 +102,7 @@ public class TestService {
         Request request = new Request.Builder()
                 .url(url)
                 .post(body)
-                .addHeader("authorization", "bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjIsImlzcyI6Imh0dHA6XC9cL210Lnd0dWxpcC5jb21cL3N0dWRlbnRcL2FwaVwvc2lnbi1pbi1vZi10ZWFjaGVyIiwiaWF0IjoxNTQ2ODU1MDY0LCJleHAiOjE1NDc0NTk4NjQsIm5iZiI6MTU0Njg1NTA2NCwianRpIjoiM2I0YjYwYjdmNzJlYTE1ZGM2NzRhNmMzMDdjNGM4ZGIifQ.aD-GVApsnwyiyM75w-JKFnx07GjxblDTo3kuwaTqhLs")
+                .addHeader("authorization", "bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjIsImlzcyI6Imh0dHA6XC9cL210Lnd0dWxpcC5jb21cL3N0dWRlbnRcL2FwaVwvc2lnbi1pbi1vZi10ZWFjaGVyIiwiaWF0IjoxNTQ3MjAyMjAyLCJleHAiOjE1NDc4MDcwMDIsIm5iZiI6MTU0NzIwMjIwMiwianRpIjoiMDMyNjc1YmY0ZDY2NWI3N2FkYmZjMTFhODNhOTk3ODAifQ.rQoNAgnn2povNk7tf_1pcYozshXvYaIZ3V_rwUq0fBk")
                 .addHeader("cache-control", "no-cache")
                 .addHeader("postman-token", "0fe448a8-2fa5-7764-a7f9-b6e9f53757a5")
                 .build();
@@ -123,32 +123,42 @@ public class TestService {
                     String stu_class = j.getString("class");
                     String groupId = j.getString("groupId");
               //      int score = j.getInt("score");
-                    int score = j.getInt("experienceScore");
+                    int score;
+                    if (!j.isNull("experienceScore"))
+                     score= j.getInt("experienceScore");
+                    else
+                        score=0;
                    // System.out.println(name + " " + stuId + " " + stu_class + groupId + " at week" + week + "get score" + score);
-                //    System.out.println(name + " " + stuId + " " + stu_class + groupId + " at week" + week + "get experienceScore" + score);
+                   System.out.println(name + " " + stuId + " " + stu_class + groupId + " at week" + week + "get experienceScore" + score);
                     Zhou256Example example = new Zhou256Example();
                     Zhou256Example.Criteria criteria = example.createCriteria();
                     criteria.and姓名EqualTo(name);
                     criteria.and学号EqualTo(stuId);
 
                     Zhou256 record = new Zhou256();
-                    record.set专业班级(stu_class);
-                    try {
-                        record.getClass().getMethod(task + week, String.class).invoke(record, score + "");
-                    } catch (IllegalAccessException e) {
-                        e.printStackTrace();
-                    } catch (InvocationTargetException e) {
-                        e.printStackTrace();
-                    } catch (NoSuchMethodException e) {
-                        e.printStackTrace();
-                    }
-              //      zhou256Mapper.updateByExampleSelective(record, example);
-                    UserProfileItem userProfileItem=new UserProfileItem();
-                    userProfileItem.setName(name);
-                    userProfileItem.setStuId(stuId);
-                    userProfileItem.setWeek(week+"");
-                    userProfileItem.setScore(score+"");
-                    userProfiles.add(userProfileItem);
+                 //   record.set专业班级(stu_class);
+                    record.setGroupid(groupId);
+//                    if(week==4){
+//                        record.set第4周实验成绩(score+"");
+//                    }
+//                    else
+//                        record.set第6周实验成绩(score+"");
+//                    try {
+//                       record.getClass().getMethod(task + week, String.class).invoke(record, score + "");
+//                    } catch (IllegalAccessException e) {
+//                        e.printStackTrace();
+//                    } catch (InvocationTargetException e) {
+//                        e.printStackTrace();
+//                    } catch (NoSuchMethodException e) {
+//                        e.printStackTrace();
+//                    }
+                   zhou256Mapper.updateByExampleSelective(record, example);
+//                    UserProfileItem userProfileItem=new UserProfileItem();
+//                    userProfileItem.setName(name);
+//                    userProfileItem.setStuId(stuId);
+//                    userProfileItem.setWeek(week+"");
+//                    userProfileItem.setScore(score+"");
+//                    userProfiles.add(userProfileItem);
 
                 }
 

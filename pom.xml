@@ -36,8 +36,8 @@
             <artifactId>spring-boot-starter-data-solr</artifactId>
         </dependency>
         <!--<dependency>-->
-            <!--<groupId>org.springframework.boot</groupId>-->
-            <!--<artifactId>spring-boot-starter-integration</artifactId>-->
+        <!--<groupId>org.springframework.boot</groupId>-->
+        <!--<artifactId>spring-boot-starter-integration</artifactId>-->
         <!--</dependency>-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -82,6 +82,24 @@
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>
             <version>20170516</version>
+        </dependency>
+        <!-- fastdfs -->
+        <!-- https://mvnrepository.com/artifact/org.csource/fastdfs-client-java -->
+        <!-- https://mvnrepository.com/artifact/cn.bestwu/fastdfs-client-java -->
+        <dependency>
+            <groupId>cn.bestwu</groupId>
+            <artifactId>fastdfs-client-java</artifactId>
+            <version>1.27</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.4</version>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
         </dependency>
     </dependencies>
 
